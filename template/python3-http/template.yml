@@ -25,3 +25,6 @@ build_options:
       - freetype-dev
       - libpng-dev
       - openblas-dev
+  - name: scipy
+    packages:
+      - py3-scipy

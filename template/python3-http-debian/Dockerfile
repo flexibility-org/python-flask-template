@@ -1,4 +1,4 @@
-FROM openfaas/classic-watchdog:0.18.1 as watchdog
+FROM openfaas/of-watchdog:0.7.6 as watchdog
 FROM python:3.7
 COPY --from=watchdog /fwatchdog /usr/bin/fwatchdog
 RUN chmod +x /usr/bin/fwatchdog
@@ -47,7 +47,7 @@ USER app
 ENV fprocess="python3 index.py"
 ENV cgi_headers="true"
 ENV mode="http"
-ENV upstream_url="http://127.0.0.1:5001"
+ENV upstream_url="http://127.0.0.1:5000"
 
 HEALTHCHECK --interval=5s CMD [ -e /tmp/.lock ] || exit 1
 
